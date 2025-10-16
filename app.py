@@ -40,7 +40,7 @@ except Exception as e:
 def load_models():
     """Embedding ve generation modellerini yükler."""
     embedding_model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
-    generation_model = genai.GenerativeModel('gemini-1.0-pro')
+    generation_model = genai.GenerativeModel('gemini-pro')
     return embedding_model, generation_model
 
 
