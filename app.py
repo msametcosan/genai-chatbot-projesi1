@@ -32,7 +32,7 @@ st.sidebar.info("Embedding modeli hazır.")
 # --- YENİ GEMINI İSTEK FONKSİYONU ---
 def generate_gemini_response(prompt):
     """requests kütüphanesi ile Gemini API'sine doğrudan istek gönderir."""
-    model_name = "gemini-1.5-flash-latest" # Kullandığımız model
+    model_name = "gemini-pro" # Kullandığımız model
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={GOOGLE_API_KEY}"
 
     headers = {'Content-Type': 'application/json'}
