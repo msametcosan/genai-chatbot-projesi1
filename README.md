@@ -52,7 +52,7 @@ Proje başarıyla tamamlanmış ve tüm teknik gereksinimler karşılanmıştır
 
 Projenin canlı web arayüzüne aşağıdaki linkten erişebilirsiniz:
 
-**[https://huggingface.co/spaces/muratdrd/akbank-genai-chatbot](https://huggingface.co/spaces/muratdrd/akbank-genai-chatbot)**
+** https://huggingface.co/spaces/murdred/akbank-genai-chatbot **
 
 
 
