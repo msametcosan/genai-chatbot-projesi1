@@ -1,11 +1,11 @@
 
 # Akbank GenAI Bootcamp: Dinamik RAG Chatbot Projesi
 
-Bu proje, Akbank GenAI Bootcamp kapsamında geliştirilmiş, RAG (Retrieval Augmented Generation) mimarisini kullanan dinamik bir sohbet botudur[cite: 2].
+Bu proje, Akbank GenAI Bootcamp kapsamında geliştirilmiş, RAG (Retrieval Augmented Generation) mimarisini kullanan dinamik bir sohbet botudur.
 
 ## 🚀 Projenin Amacı 
 
-Projenin temel amacı, kullanıcının belirlediği herhangi bir Wikipedia konusunu anlık olarak "bilgi kaynağı" olarak kullanan bir RAG chatbot'u oluşturmaktır[cite: 2]. Sabit bir veri setine bağlı kalmak yerine, kullanıcıya sohbet sırasında "hafızasını" dinamik olarak belirleme esnekliği sunulmuştur. Uygulama, Streamlit aracılığıyla interaktif bir web arayüzü üzerinden sunulmaktadır.
+Projenin temel amacı, kullanıcının belirlediği herhangi bir Wikipedia konusunu anlık olarak "bilgi kaynağı" olarak kullanan bir RAG chatbot'u oluşturmaktır. Sabit bir veri setine bağlı kalmak yerine, kullanıcıya sohbet sırasında "hafızasını" dinamik olarak belirleme esnekliği sunulmuştur. Uygulama, Streamlit aracılığıyla interaktif bir web arayüzü üzerinden sunulmaktadır.
 
 ## 📊 Veri Seti Hakkında Bilgi 
 
@@ -51,7 +51,7 @@ Proje başarıyla tamamlanmış ve tüm teknik gereksinimler karşılanmıştır
 ## 🌐 Web Uygulama Linki 
 
 Projenin canlı web arayüzüne aşağıdaki linkten erişebilirsiniz:
-
+https://huggingface.co/spaces/murdred/akbank-genai-chatbot
 ** https://huggingface.co/spaces/murdred/akbank-genai-chatbot **
 
 
