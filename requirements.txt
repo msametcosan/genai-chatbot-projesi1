@@ -1,7 +1,7 @@
 streamlit
-requests
+google-generativeai
 sentence-transformers
 faiss-cpu
 wikipedia
-pandas
 numpy
+pandas
