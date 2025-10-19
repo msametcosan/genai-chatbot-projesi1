@@ -1,104 +1,71 @@
-# Akbank GenAI Bootcamp - Genel Kültür Chatbot Projesi
+---
+metadatatitle: Akbank Genai Chatbot
+emoji: 🚀
+colorFrom: red
+colorTo: red
+sdk: docker
+app_port: 8501
+tags:
+  - streamlit
+pinned: false
+short_description: Streamlit template space
+license: apache-2.0
+---
 
-Bu proje, Akbank GenAI Bootcamp kapsamında geliştirilmiş, RAG (Retrieval Augmented Generation) mimarisi kullanan bir chatbot içerir.
+# Akbank GenAI Bootcamp: Dinamik RAG Chatbot Projesi
 
-## Projenin Amacı
+[cite_start]Bu proje, Akbank GenAI Bootcamp kapsamında geliştirilmiş, RAG (Retrieval Augmented Generation) mimarisini kullanan dinamik bir sohbet botudur[cite: 2].
 
-Projenin ana hedefi, statik bir veri setine bağlı kalmadan, kullanıcının belirlediği herhangi bir konu hakkında gerçek zamanlı olarak bilgi toplayan ve bu bilgileri kullanarak soruları yanıtlayan akıllı bir sohbet botu geliştirmektir. Bu sayede, chatbot'un bilgi tabanı neredeyse sınırsız ve sürekli güncel kalmaktadır. Proje, son kullanıcıya bir web arayüzü aracılığıyla sunulacaktır.
+## [cite_start]🚀 Projenin Amacı 
 
-## Veri Seti Hakkında Bilgi
+[cite_start]Projenin temel amacı, kullanıcının belirlediği herhangi bir Wikipedia konusunu anlık olarak "bilgi kaynağı" olarak kullanan bir RAG chatbot'u oluşturmaktır[cite: 2]. Sabit bir veri setine bağlı kalmak yerine, kullanıcıya sohbet sırasında "hafızasını" dinamik olarak belirleme esnekliği sunulmuştur. [cite_start]Uygulama, Streamlit aracılığıyla interaktif bir web arayüzü üzerinden sunulmaktadır[cite: 2].
 
-Bu projede geleneksel, önceden hazırlanmış bir veri seti kullanılmamıştır. Bunun yerine, dinamik bir veri toplama yaklaşımı benimsenmiştir.
+## [cite_start]📊 Veri Seti Hakkında Bilgi 
 
-Veri Kaynağı: Türkçe Wikipedia.
+Bu projede statik (sabit) bir veri seti kullanılmamıştır.
 
-Metodoloji: Kullanıcı sohbet sırasında yeni bir konu belirlediğinde veya hakkında bilgi olmayan bir soru sorduğunda, sistem otomatik olarak bu konuyla ilgili en alakalı Wikipedia makalesini bulur. Makalenin içeriği o anki sohbetin bilgi kaynağı (context) olarak kullanılır. Bu yöntem sayesinde chatbot, sabit bir bilgiyle sınırlı kalmaz ve her konuda konuşabilir hale gelir.
+**Veri Kaynağı:** Wikipedia (Dinamik)
 
-## Kullanılan Yöntemler
+**Metodoloji:**
+Kullanıcı, web arayüzündeki kenar çubuğuna (sidebar) bir konu başlığı (örn: "Yapay zeka", "Mustafa Kemal Atatürk") girdiğinde, uygulama anlık olarak:
+1.  Python `wikipedia` kütüphanesini kullanarak o konuyla ilgili en alakalı Türkçe Wikipedia makalesini çeker.
+2.  Makalenin tam metnini (`.content`) alır.
+3.  Bu metni, anlamlı paragraflara (100 karakterden uzun "chunk"lar) böler.
+4.  Bu parçaları, chatbot'un RAG mimarisi için "bilgi kaynağı" (hafıza) olarak kullanır.
 
-Proje, RAG (Retrieval-Augmented Generation)  mimarisi temel alınarak geliştirilmiştir. Çözümün iş akışı aşağıdaki adımlardan oluşmaktadır:
+## [cite_start]🛠️ Kullanılan Yöntemler ve Mimari 
 
-Konu Belirleme: Kullanıcı, konu: [konu adı] komutuyla veya doğrudan bir soru sorarak sohbetin ana konusunu belirler.
+[cite_start]Proje, modern bir RAG (Retrieval Augmented Generation) mimarisi üzerine kurulmuştur[cite: 2].
 
-Veri Çekme (Retrieval): Belirlenen konu başlığı ile Wikipedia'dan ilgili makale çekilir.
+**Çözüm Mimarisi:**
+1.  **Veri Toplama (Retrieval):** Kullanıcının girdiği konu `wikipedia` kütüphanesi ile bulunur.
+2.  **Embedding:** Toplanan metin parçaları (chunks), `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` modeli kullanılarak 384 boyutlu anlamsal vektörlere dönüştürülür.
+3.  **İndeksleme (Indexing):** Bu vektörler, hızlı anlamsal arama yapılabilmesi için `faiss-cpu` (bir vektör veritabanı) içinde indekslenir.
+4.  **Sorgu (Query):** Kullanıcı bir soru sorduğunda (örn: "Atatürk kimdir?"), bu soru da aynı embedding modeli ile vektöre dönüştürülür.
+5.  **Arama (Search):** FAISS veritabanı kullanılarak, kullanıcının soru vektörüne en yakın (anlamsal olarak en alakalı) 5 metin parçası (context) bulunur.
+6.  **Zenginleştirme (Augmentation):** Bu 5 alakalı metin parçası, bir "bilgi şablonu" (prompt) içine yerleştirilir.
+7.  **Üretim (Generation):** Bu zenginleştirilmiş prompt, cevap üretmesi için `gemini-pro-latest` (Google Gemini Pro) modeline gönderilir. Modele, "Sadece sana verdiğim bu bilgileri kullanarak cevap ver" talimatı verilir.
 
-Parçalama (Chunking): Makale metni, anlamsal bütünlüğü olan daha küçük paragraflara (chunk) ayrılır.
+**Kullanılan Teknolojiler:**
+* **Generation Modeli:** Google `gemini-pro-latest`
+* **Embedding Modeli:** `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`
+* **Vektör Veritabanı:** `faiss-cpu`
+* **Web Arayüzü:** `Streamlit`
+* **Deployment (Yayınlama):** `Hugging Face Spaces` (Docker SDK ile)
 
+## [cite_start]📋 Elde Edilen Sonuçlar 
 
-Vektörleştirme (Embedding): Her metin parçası, sentence-transformers kütüphanesi kullanılarak anlamsal olarak karşılığı olan sayısal vektörlere dönüştürülür.
+Proje başarıyla tamamlanmış ve tüm teknik gereksinimler karşılanmıştır.
+* Kullanıcının girdiği herhangi bir Wikipedia konusunu temel alan, dinamik RAG mimarisi başarıyla oluşturulmuştur.
+* Uygulama, `Dockerfile` ve `Streamlit` kullanılarak Hugging Face Spaces üzerinde başarıyla canlıya alınmıştır.
+* `PermissionError` ve `Dockerfile` yapılandırma hataları gibi sunucu taraflı sorunlar, cache (önbellek) dizininin `/tmp` olarak ayarlanması ve `Dockerfile`'ın "build" aşamasında modeli indirmeye zorlanması gibi yöntemlerle çözülmüştür.
+* Başlangıçta denenen `gemini-1.5-flash` modelinin API anahtarı yetkilendirme sorunları (`404 Not Found` hatası), daha stabil olan `gemini-pro-latest` modeline dönülerek aşılmıştır.
 
+## [cite_start]🌐 Web Uygulama Linki 
 
-İndeksleme (Indexing): Oluşturulan vektörler, hızlı anlamsal arama yapabilmek için FAISS vektör veritabanına yüklenir.
+Projenin canlı web arayüzüne aşağıdaki linkten erişebilirsiniz:
 
-Anlamsal Arama: Kullanıcının sorusu da aynı modelle vektöre dönüştürülür ve FAISS üzerinde yapılan arama ile soruya en alakalı metin parçaları bulunur.
-
-
-Cevap Üretimi (Generation): Bulunan alakalı metin parçaları (context) ve kullanıcının orijinal sorusu, bir prompt şablonu ile birleştirilerek Google Gemini API'sine  gönderilir. Gemini, kendisine verilen bu bağlama sadık kalarak nihai cevabı üretir.
-
-
-Kullanılan Teknolojiler:
-
-
-Generation Model: Google Gemini 1.0 Pro 
-
-
-Embedding Model: paraphrase-multilingual-MiniLM-L12-v2 
-
-
-Vector Database: FAISS (in-memory) 
-
-Data Source: Wikipedia API
-
-
-## Elde Edilen Sonuçlar
-
-Geliştirilen chatbot, aşağıdaki yeteneklere sahiptir:
-
-Geniş bir konu yelpazesinde, Wikipedia'da var olan bilgiler dahilinde tutarlı ve doğru cevaplar üretebilmektedir.
-
-Cevaplarını yalnızca sağlanan bağlama dayandırdığı için, yapay zeka modellerinde sıkça görülen "halüsinasyon" (bilgi uydurma) sorunu minimize edilmiştir. Bilgi yetersiz olduğunda "Bu konuda bilgim yok." diyerek dürüst bir yanıt vermektedir.
-
-Dinamik yapısı sayesinde bilgi tabanı esnektir ve kolayca yeni konulara adapte olabilmektedir.
-
-
-
-
-Çalışma Kılavuzu:
-Projeyi lokal makinenizde çalıştırmak için aşağıdaki adımları izleyebilirsiniz.
-
-Gereksinimler:
-
-Python 3.8+
-
-Kurulum:
-
-Bu depoyu klonlayın:
-
-Bash
-
-git clone https://github.com/[msametcosan]/[genai-chatbot-projesi1].git
-Proje dizinine gidin:
-
-Bash
-
-cd [genai-chatbot-projesi1]
-Gerekli kütüphaneleri requirements.txt dosyasını kullanarak yükleyin:
-
-Bash
-
-pip install -r requirements.txt
-(Not: Henüz oluşturmadıysanız, pip freeze > requirements.txt komutuyla projenizin bağımlılıklarını içeren bu dosyayı oluşturun.)
-
-Google AI Studio üzerinden bir API anahtarı oluşturun ve bu anahtarı bir .env dosyasında saklayın:
-
-GOOGLE_API_KEY="YAPAY-ZEKA-API-ANAHTARINIZ"
-Ana Python betiğini çalıştırın:
-
-Bash
-
-python main.py
+**[https://huggingface.co/spaces/muratdrd/akbank-genai-chatbot](https://huggingface.co/spaces/muratdrd/akbank-genai-chatbot)**
 
 
-## Web Arayüzü
 
-(Bu bölüm proje deploy edildikten sonra doldurulacaktır. Buraya link eklenecektir.)
