@@ -1,26 +1,13 @@
----
-metadatatitle: Akbank Genai Chatbot
-emoji: 🚀
-colorFrom: red
-colorTo: red
-sdk: docker
-app_port: 8501
-tags:
-  - streamlit
-pinned: false
-short_description: Streamlit template space
-license: apache-2.0
----
 
 # Akbank GenAI Bootcamp: Dinamik RAG Chatbot Projesi
 
-[cite_start]Bu proje, Akbank GenAI Bootcamp kapsamında geliştirilmiş, RAG (Retrieval Augmented Generation) mimarisini kullanan dinamik bir sohbet botudur[cite: 2].
+Bu proje, Akbank GenAI Bootcamp kapsamında geliştirilmiş, RAG (Retrieval Augmented Generation) mimarisini kullanan dinamik bir sohbet botudur[cite: 2].
 
-## [cite_start]🚀 Projenin Amacı 
+## 🚀 Projenin Amacı 
 
-[cite_start]Projenin temel amacı, kullanıcının belirlediği herhangi bir Wikipedia konusunu anlık olarak "bilgi kaynağı" olarak kullanan bir RAG chatbot'u oluşturmaktır[cite: 2]. Sabit bir veri setine bağlı kalmak yerine, kullanıcıya sohbet sırasında "hafızasını" dinamik olarak belirleme esnekliği sunulmuştur. [cite_start]Uygulama, Streamlit aracılığıyla interaktif bir web arayüzü üzerinden sunulmaktadır[cite: 2].
+Projenin temel amacı, kullanıcının belirlediği herhangi bir Wikipedia konusunu anlık olarak "bilgi kaynağı" olarak kullanan bir RAG chatbot'u oluşturmaktır[cite: 2]. Sabit bir veri setine bağlı kalmak yerine, kullanıcıya sohbet sırasında "hafızasını" dinamik olarak belirleme esnekliği sunulmuştur. Uygulama, Streamlit aracılığıyla interaktif bir web arayüzü üzerinden sunulmaktadır.
 
-## [cite_start]📊 Veri Seti Hakkında Bilgi 
+## 📊 Veri Seti Hakkında Bilgi 
 
 Bu projede statik (sabit) bir veri seti kullanılmamıştır.
 
@@ -33,9 +20,9 @@ Kullanıcı, web arayüzündeki kenar çubuğuna (sidebar) bir konu başlığı 
 3.  Bu metni, anlamlı paragraflara (100 karakterden uzun "chunk"lar) böler.
 4.  Bu parçaları, chatbot'un RAG mimarisi için "bilgi kaynağı" (hafıza) olarak kullanır.
 
-## [cite_start]🛠️ Kullanılan Yöntemler ve Mimari 
+## 🛠️ Kullanılan Yöntemler ve Mimari 
 
-[cite_start]Proje, modern bir RAG (Retrieval Augmented Generation) mimarisi üzerine kurulmuştur[cite: 2].
+Proje, modern bir RAG (Retrieval Augmented Generation) mimarisi üzerine kurulmuştur.
 
 **Çözüm Mimarisi:**
 1.  **Veri Toplama (Retrieval):** Kullanıcının girdiği konu `wikipedia` kütüphanesi ile bulunur.
@@ -53,7 +40,7 @@ Kullanıcı, web arayüzündeki kenar çubuğuna (sidebar) bir konu başlığı 
 * **Web Arayüzü:** `Streamlit`
 * **Deployment (Yayınlama):** `Hugging Face Spaces` (Docker SDK ile)
 
-## [cite_start]📋 Elde Edilen Sonuçlar 
+## 📋 Elde Edilen Sonuçlar 
 
 Proje başarıyla tamamlanmış ve tüm teknik gereksinimler karşılanmıştır.
 * Kullanıcının girdiği herhangi bir Wikipedia konusunu temel alan, dinamik RAG mimarisi başarıyla oluşturulmuştur.
@@ -61,7 +48,7 @@ Proje başarıyla tamamlanmış ve tüm teknik gereksinimler karşılanmıştır
 * `PermissionError` ve `Dockerfile` yapılandırma hataları gibi sunucu taraflı sorunlar, cache (önbellek) dizininin `/tmp` olarak ayarlanması ve `Dockerfile`'ın "build" aşamasında modeli indirmeye zorlanması gibi yöntemlerle çözülmüştür.
 * Başlangıçta denenen `gemini-1.5-flash` modelinin API anahtarı yetkilendirme sorunları (`404 Not Found` hatası), daha stabil olan `gemini-pro-latest` modeline dönülerek aşılmıştır.
 
-## [cite_start]🌐 Web Uygulama Linki 
+## 🌐 Web Uygulama Linki 
 
 Projenin canlı web arayüzüne aşağıdaki linkten erişebilirsiniz:
 
