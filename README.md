@@ -47,11 +47,59 @@ Proje başarıyla tamamlanmış ve tüm teknik gereksinimler karşılanmıştır
 * Uygulama, `Dockerfile` ve `Streamlit` kullanılarak Hugging Face Spaces üzerinde başarıyla canlıya alınmıştır.
 
 
+* ## ⚙️ Projeyi Lokal Olarak Çalıştırma Kılavuzu
+
+Bu projeyi kendi bilgisayarınızda çalıştırmak için aşağıdaki adımları izleyebilirsiniz:
+
+1.  **Depoyu Klonlayın:**
+    ```bash
+    git clone [https://github.com/muratdrd/akbanka1.git](https://github.com/muratdrd/akbanka1.git)
+    cd akbanka1
+    ```
+
+2.  **Sanal Ortam Oluşturun (Önerilir):**
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # macOS/Linux için
+    .\venv\Scripts\activate  # Windows için
+    ```
+
+3.  **Gerekli Kütüphaneleri Yükleyin:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4.  **API Anahtarını Ayarlayın:**
+    * Proje klasörünüzün içinde `.streamlit` adında bir klasör oluşturun.
+    * Bu klasörün içine `secrets.toml` adında bir dosya oluşturun.
+    * Dosyanın içine Google API anahtarınızı aşağıdaki formatta ekleyin:
+      ```toml
+      GOOGLE_API_KEY = "AIzaSy..."
+      ```
+
+5.  **Uygulamayı Başlatın:**
+    ```bash
+    streamlit run app.py
+    ```
+* 
+
+
 ## 🌐 Web Uygulama Linki 
 
 Projenin canlı web arayüzüne aşağıdaki linkten erişebilirsiniz:
 https://huggingface.co/spaces/murdred/akbank-genai-chatbot
 ** https://huggingface.co/spaces/murdred/akbank-genai-chatbot **
+
+
+
+### 💡 Arayüz Kullanım Kılavuzu
+
+Uygulamayı kullanmak oldukça basittir:
+
+1.  **Konu Belirleyin:** Sol taraftaki menüde bulunan "Wikipedia Konusu Girin" metin kutusuna, hakkında sohbet etmek istediğiniz konuyu yazın (örn: `Fenerbahçe Spor Kulübü`).
+2.  **Konuyu Ayarlayın:** "Yeni Konuyu Ayarla" butonuna basın. Uygulama, bu konuyla ilgili Wikipedia makalesini bulup hafızasını hazırlayacaktır.
+3.  **Soru Sorun:** Ana sohbet ekranının en altındaki metin kutusuna, belirlediğiniz konuyla ilgili sorunuzu yazın ve Enter'a basın.
+4.  **Cevabı Alın:** Chatbot, Wikipedia'dan aldığı bilgilere dayanarak sorunuza cevap üretecektir.
 
 
 
