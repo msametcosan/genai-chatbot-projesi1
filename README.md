@@ -45,8 +45,7 @@ Proje, modern bir RAG (Retrieval Augmented Generation) mimarisi üzerine kurulmu
 Proje başarıyla tamamlanmış ve tüm teknik gereksinimler karşılanmıştır.
 * Kullanıcının girdiği herhangi bir Wikipedia konusunu temel alan, dinamik RAG mimarisi başarıyla oluşturulmuştur.
 * Uygulama, `Dockerfile` ve `Streamlit` kullanılarak Hugging Face Spaces üzerinde başarıyla canlıya alınmıştır.
-* `PermissionError` ve `Dockerfile` yapılandırma hataları gibi sunucu taraflı sorunlar, cache (önbellek) dizininin `/tmp` olarak ayarlanması ve `Dockerfile`'ın "build" aşamasında modeli indirmeye zorlanması gibi yöntemlerle çözülmüştür.
-* Başlangıçta denenen `gemini-1.5-flash` modelinin API anahtarı yetkilendirme sorunları (`404 Not Found` hatası), daha stabil olan `gemini-pro-latest` modeline dönülerek aşılmıştır.
+
 
 ## 🌐 Web Uygulama Linki 
 
