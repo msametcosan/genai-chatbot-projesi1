@@ -100,6 +100,7 @@ Uygulamayı kullanmak oldukça basittir:
 2.  **Konuyu Ayarlayın:** "Yeni Konuyu Ayarla" butonuna basın. Uygulama, bu konuyla ilgili Wikipedia makalesini bulup hafızasını hazırlayacaktır.
 3.  **Soru Sorun:** Ana sohbet ekranının en altındaki metin kutusuna, belirlediğiniz konuyla ilgili sorunuzu yazın ve Enter'a basın.
 4.  **Cevabı Alın:** Chatbot, Wikipedia'dan aldığı bilgilere dayanarak sorunuza cevap üretecektir.
+5.  ÖRNEK SORULAR : Atatürk kimdir? , Everest Dağı nerededir?, Albert Einstein ne zaman doğdu?
 
 
 
